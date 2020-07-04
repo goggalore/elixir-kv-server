@@ -19,7 +19,7 @@ defmodule KV.Router do
       apply(mod, fun, args)
     else
       {KV.RouterTasks, elem(entry, 1)}
-      |> Task.Suprvisor.async(KV.Router, :route, [bucket, mod, fun, args])
+      |> Task.Supervisor.async(KV.Router, :route, [bucket, mod, fun, args])
       |> Task.await()
     end
   end
