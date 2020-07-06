@@ -19,7 +19,7 @@ defmodule KV.Router do
       apply(mod, fun, args)
     else
       {KV.RouterTasks, elem(entry, 1)}
-      |> Task.Suprvisor.async(KV.Router, :route, [bucket, mod, fun, args])
+      |> Task.Supervisor.async(KV.Router, :route, [bucket, mod, fun, args])
       |> Task.await()
     end
   end
@@ -32,6 +32,6 @@ defmodule KV.Router do
     The routing table
   """
   def table do
-    [{?a..?m, :"foo@Junes-MacBook-Pro"}, {?n..?z, :"bar@Junes-MacBook-Pro"}]
+    Application.fetch_env!(:kv, :routing_table)
   end
 end
