@@ -8,11 +8,11 @@
 # configurations or dependencies per app, it is best to
 # move said applications out of the umbrella.
 import Config
+config :kv, :routing_table, [{?a..?z, node()}]
 
-# Sample configuration:
-#
-#     config :logger, :console,
-#       level: :info,
-#       format: "$date $time [$level] $metadata$message\n",
-#       metadata: [:user_id]
-#
+if Mix.env() == :prod do
+  config :kv, :routing_table, [
+    {?a..?m, :"foo@computer-name"},
+    {?n..?z, :"bar@computer-name"}
+  ]
+end
