@@ -11,7 +11,7 @@ import Config
 
 if Mix.env() == :prod do
   config :kv, :routing_table, [
-    {?a..?m, :"foo@computer-name"},
-    {?n..?z, :"bar@computer-name"}
+    {?a..?m, :"foo@Junes-MacBook-Pro"},
+    {?n..?z, :"bar@Junes-MacBook-Pro"}
   ]
 end
