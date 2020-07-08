@@ -5,4 +5,5 @@
                         'Elixir.KV.Router','Elixir.KV.Supervisor']},
               {registered,[]},
               {vsn,"0.1.0"},
+              {env,[{routing_table,[]}]},
               {mod,{'Elixir.KV',[]}}]}.

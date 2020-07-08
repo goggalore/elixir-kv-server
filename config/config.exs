@@ -9,10 +9,9 @@
 # move said applications out of the umbrella.
 import Config
 
-# Sample configuration:
-#
-#     config :logger, :console,
-#       level: :info,
-#       format: "$date $time [$level] $metadata$message\n",
-#       metadata: [:user_id]
-#
+if Mix.env() == :prod do
+  config :kv, :routing_table, [
+    {?a..?m, :"foo@Junes-MacBook-Pro"},
+    {?n..?z, :"bar@Junes-MacBook-Pro"}
+  ]
+end
